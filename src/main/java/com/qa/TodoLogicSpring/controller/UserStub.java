@@ -9,12 +9,6 @@ public class UserStub {
 	private static Map<Long,User> users = new HashMap<Long,User>();
 	private static Long idIndex=3L;
 	static {
-	User user1= new User( 1L, "idGolf","A very deep Getman Car","bob","fred");
-    User user2= new User(2L, "Fred","Amit", "Raj", "IT");
-    User user3= new User(3L, "Raj","Nitish", "Kumar", "Marketing");
-	users.put(1L, user1);
-	users.put(2L, user2);
-	users.put(3L, user3);
 	}
 	public static List<User>list(){
 		return new ArrayList<User>(users.values());
