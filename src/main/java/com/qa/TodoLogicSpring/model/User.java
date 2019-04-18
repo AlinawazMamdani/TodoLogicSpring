@@ -1,4 +1,7 @@
 package com.qa.TodoLogicSpring.model;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +20,10 @@ public class User {
 		this.lastName=lastName;
 		this.firstName=firstName;
 	}
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="id")
+	private Set<TodoItem> todoItems;
+	
 	public User() {
 	}
 	public Long getId() {

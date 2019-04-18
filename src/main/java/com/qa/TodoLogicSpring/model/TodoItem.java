@@ -6,13 +6,16 @@ public class TodoItem {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idTodo;
     private String todo;
-    private Long userID;
+    
+    @ManyToOne
+   private User user;
+   
+
     public TodoItem(Long idTodo,String todo,Long userID) {
     	this.idTodo=idTodo;
     	this.todo=todo;
-    	this.userID=userID;
     	
-	      
+	   
 	}
 	public TodoItem() {
 	}
@@ -27,12 +30,6 @@ public Long getIdTodo() {
 }
 public void setIdTodo(Long idTodo) {
 	this.idTodo = idTodo;
-}
-public Long getUserID() {
-	return userID;
-}
-public void setUserID(Long userID) {
-	this.userID = userID;
 }
 
 }
