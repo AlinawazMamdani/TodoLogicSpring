@@ -33,21 +33,25 @@ public class TodoItemController {
 		return todoItemRepository.findOne(idTodo);
     }
 
-	@RequestMapping(value = "todos/{idTodo}", method = RequestMethod.PUT)
+	@RequestMapping(value = "todos///{idTodo}", method = RequestMethod.PUT)
     public TodoItem update(@PathVariable Long idTodo, @RequestBody TodoItem todoItem){
 		TodoItem existingTodoItem = todoItemRepository.findOne(idTodo);
         BeanUtils.copyProperties(todoItem, existingTodoItem);
         return todoItemRepository.saveAndFlush(todoItem);
     }
 
-	@RequestMapping(value = "todoItem/{idTodo}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "todos/{idTodo}", method = RequestMethod.DELETE)
     public TodoItem delete(@PathVariable Long idTodo){
 		TodoItem existingTodoItem = todoItemRepository.findOne(idTodo);
 		todoItemRepository.delete(existingTodoItem);
         return existingTodoItem;
     }
 
-	
+	@RequestMapping(value = "todos//{userID}", method = RequestMethod.GET)
+	public List<TodoItem> getItemsFromID(@PathVariable Long userID){
+		return todoItemRepository.findByUserID(userID);
+		
+    }
 
 
 }
