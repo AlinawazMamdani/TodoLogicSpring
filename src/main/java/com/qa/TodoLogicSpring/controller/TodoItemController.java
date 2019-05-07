@@ -52,6 +52,13 @@ public class TodoItemController {
 		return todoItemRepository.findByUserID(userID);
 		
     }
+	@RequestMapping(value = "todos///{userID}//{completed}", method = RequestMethod.GET)
+	public List<TodoItem> getItems(@PathVariable Long userID,@PathVariable boolean completed){
+		return todoItemRepository.findByUserIDAndCompleted(userID,completed);
+		
+		
+		 
+	}
 
 
 }

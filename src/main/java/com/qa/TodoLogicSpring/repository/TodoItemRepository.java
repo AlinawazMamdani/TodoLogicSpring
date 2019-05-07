@@ -8,5 +8,6 @@ import com.qa.TodoLogicSpring.model.*;
 
 public interface TodoItemRepository extends JpaRepository <TodoItem,Long>{
 	List<TodoItem> findByUserID(Long userID);
+	List<TodoItem> findByUserIDAndCompleted(long userID,boolean completed);
 
 }
