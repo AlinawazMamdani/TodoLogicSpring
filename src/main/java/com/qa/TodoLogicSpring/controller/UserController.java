@@ -43,7 +43,28 @@ public class UserController {
         usersRepository.delete(existingUser);
         return existingUser;
     }
-
+	@RequestMapping(value = "users//{username}", method = RequestMethod.GET)
+	public List<User> getUsername(@PathVariable String username){
+	return usersRepository.findByUsername(username);
+	}
+	@RequestMapping(value = "users///{username}", method = RequestMethod.GET)
+	public int getOnlyUsername(@PathVariable String username){
+	   
+	   if (getUsername(username).isEmpty()==true) {
+		   return 0;
+	   }else {
+		   return 1;
+	   } 
+	}
+	@RequestMapping(value = "users///{username}/{password}", method = RequestMethod.GET)
+	public Long checkUsernameAndPassword(@PathVariable String username,@PathVariable String password){
+	 if (usersRepository.findByUsername(username).get(0).getPassword().equals(password)) {
+		  return usersRepository.findByUsername(username).get(0).getId();
+	 }else {
+		 return (long) 0;
+	 }
+	 
+	}
 	@Autowired
 	private UserRepository usersRepository;
 

@@ -13,12 +13,10 @@ public class User {
 	private String password;
 	private String firstName;
 	private String lastName;	
-	public User(Long id,String username,String password,String firstName, String lastName) {
+	public User(Long id,String username,String password) {
 		this.id=id;
 		this.username=username;
 		this.password=password;
-		this.lastName=lastName;
-		this.firstName=firstName;
 	}
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="id")

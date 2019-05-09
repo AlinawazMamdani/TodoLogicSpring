@@ -50,15 +50,9 @@ public class TodoItemController {
 	@RequestMapping(value = "todos//{userID}", method = RequestMethod.GET)
 	public List<TodoItem> getItemsFromID(@PathVariable Long userID){
 		return todoItemRepository.findByUserID(userID);
-		
     }
 	@RequestMapping(value = "todos///{userID}//{completed}", method = RequestMethod.GET)
 	public List<TodoItem> getItems(@PathVariable Long userID,@PathVariable boolean completed){
-		return todoItemRepository.findByUserIDAndCompleted(userID,completed);
-		
-		
-		 
+		return todoItemRepository.findByUserIDAndCompleted(userID,completed);	 
 	}
-
-
 }
